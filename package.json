@@ -1,0 +1,41 @@
+{
+  "name": "token-server",
+  "version": "1.0.0",
+  "description": "Production-ready Agora token server with Socket.IO support and translation capabilities",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "NODE_ENV=development node src/index.js",
+    "test": "node test-server.js",
+    "ngrok": "ngrok http 8000",
+    "lint": "echo \"Linting not configured yet\"",
+    "build": "echo \"No build step required for Node.js\""
+  },
+  "keywords": [
+    "agora",
+    "token",
+    "websocket",
+    "socket.io",
+    "translation",
+    "real-time"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "agora-access-token": "^2.0.4",
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
