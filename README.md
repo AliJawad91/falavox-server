@@ -98,6 +98,74 @@ npm run dev
 npm start
 ```
 
+## Ngrok Setup
+
+To expose your local server to the internet using ngrok (useful for testing webhooks, mobile apps, etc.):
+
+### Installation
+
+1. **Install ngrok via Homebrew** (recommended):
+   ```bash
+   brew install ngrok/ngrok/ngrok
+   ```
+
+   Or download directly from [ngrok.com](https://ngrok.com/download)
+
+2. **Create an ngrok account** (if you don't have one):
+   - Go to [ngrok.com](https://ngrok.com) and sign up for a free account
+   - After signing up, log in to your ngrok dashboard
+
+3. **Get and configure your authtoken**:
+   - **Find your authtoken**: 
+     - In the ngrok dashboard, go to "Your Authtoken" section (usually visible on the main page after login)
+     - You'll see a long string that looks like: `2abc123xyz456...` (this is your authtoken)
+     - **Copy this entire token** (click the copy button or select and copy)
+   
+   - **Paste it in the terminal**:
+     - Open your terminal
+     - Type: `ngrok config add-authtoken ` (note the space at the end)
+     - **Paste your authtoken** right after the space (Command+V or right-click → Paste)
+     - Press Enter
+   
+   Example: If your authtoken is `2abc123xyz456def789`, you would run:
+   ```bash
+   ngrok config add-authtoken 2abc123xyz456def789
+   ```
+   
+   You should see a success message like: "Authtoken saved to configuration file"
+
+### Usage
+
+1. **Start your server** in one terminal:
+   ```bash
+   npm run dev
+   ```
+   The server will run on port 8000 (or the port specified in your `.env` file).
+
+2. **Start ngrok** in another terminal:
+   ```bash
+   npm run ngrok
+   ```
+   Or directly:
+   ```bash
+   ngrok http 8000
+   ```
+
+3. **Use the ngrok URL**:
+   - ngrok will display a public URL (e.g., `https://abc123.ngrok.io`)
+   - Use this URL to access your server from anywhere
+   - Both HTTP and HTTPS are supported
+   - WebSocket connections (Socket.IO) will work automatically
+
+### Note
+
+- The ngrok URL changes each time you restart ngrok (unless you have a paid plan with a static domain)
+- Make sure your server is running before starting ngrok
+- If you change the server port, update the ngrok command accordingly:
+  ```bash
+  ngrok http YOUR_PORT
+  ```
+
 ## API Endpoints
 
 ### Generate Token
